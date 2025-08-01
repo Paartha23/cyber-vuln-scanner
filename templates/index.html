@@ -12,14 +12,20 @@
   {% include 'navbar.html' %}
 
   <div class="page-content">
-    <h1>Web Vulnerability Scanner</h1>
-
     <!-- Form -->
-    <form method="POST" action="/">
-      <input type="text" name="url" placeholder="Enter website URL..." required>
-      <button type="submit" class="scan-btn" id="scanBtn">🔍 Scan</button>
+  <div class="hero-center {% if results %}with-results{% endif %}">
 
-    </form>
+  <h1>Web Vulnerability Scanner</h1>
+  <form method="POST">
+  <div class="form-group">
+    <input type="text" name="url" id="url-input" placeholder="Enter website URL..." required>
+    <button type="submit" class="scan-btn" id="scan-btn">🔍 Scan</button>
+    <p id="error-message" class="error-text">❌ Invalid URL. Please enter a valid one.</p>
+
+  </div>
+</form>
+
+</div>
 
     <!-- Spinner (Hidden by Default) -->
     <div id="spinner" class="spinner" style="display: none;">
@@ -149,6 +155,9 @@
     "retina_detect": true
   });
 </script>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
 
 </body>
 
