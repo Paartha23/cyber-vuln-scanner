@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scan Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        h2 {
+            color: #333;
+        }
+        ul {
+            margin-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        a {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Scan Results for: {{ url }}</h1>
+
+    <div class="section">
+        <h2>🔍 Tech Stack Headers:</h2>
+        {% if headers %}
+            <ul>
+                {% for header in headers %}
+                    <li>{{ header }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No tech stack headers detected.</p>
+        {% endif %}
+    </div>
+
+    <div class="section">
+        <h2>🛡️ Security Headers:</h2>
+        {% if security_headers %}
+            <ul>
+                {% for header, status in security_headers.items() %}
+                    <li><strong>{{ header }}</strong>: {{ status }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No security headers found.</p>
+        {% endif %}
+    </div>
+
+    <div class="section">
+        <h2>🚫 XSS Result:</h2>
+        {% if xss_result %}
+            <ul>
+                {% for xss in xss_result %}
+                    <li>{{ xss }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No XSS vulnerabilities detected.</p>
+        {% endif %}
+    </div>
+
+    <div class="section">
+        <h2>📄 Download Report</h2>
+        <a href="{{ report_path }}" download>Download HTML Report</a>
+    </div>
+</body>
+</html>

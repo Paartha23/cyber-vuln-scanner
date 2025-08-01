@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cybersecurity Frameworks</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <!-- Particles background -->
+  <div id="particles-js"></div>
+
+  {% include 'navbar.html' %}
+
+  <div class="frameworks-container page-content">
+    <h1>📚 Cybersecurity Frameworks</h1>
+
+    <div class="card-container">
+      <div class="glass-card">
+        <h2>🛡️ OWASP Top 10</h2>
+        <p>Common web vulnerabilities and best practices to avoid them.</p>
+        <a href="https://owasp.org/www-project-top-ten/" target="_blank" class="learn-more">🔗 Learn More</a>
+      </div>
+      <div class="glass-card">
+        <h2>🔐 NIST Cybersecurity Framework</h2>
+        <p>Identify, Protect, Detect, Respond, and Recover — a holistic approach to security.</p>
+        <a href="https://www.nist.gov/cyberframework" target="_blank" class="learn-more">🔗 Learn More</a>
+      </div>
+      <div class="glass-card">
+        <h2>🌐 ISO/IEC 27001</h2>
+        <p>International standard for managing information security risks and controls.</p>
+        <a href="https://www.iso.org/isoiec-27001-information-security.html" target="_blank" class="learn-more">🔗 Learn More</a>
+      </div>
+      <div class="glass-card">
+        <h2>🛡️ CIS Controls</h2>
+        <p>18 prioritized cybersecurity best practices to secure your organization.</p>
+        <a href="https://www.cisecurity.org/controls" target="_blank" class="learn-more">🔗 Learn More</a>
+      </div>
+    </div>
+
+    <a href="{{ url_for('index') }}" class="back-link">← Back to Scanner</a>
+  </div>
+
+  <!-- Particles.js script -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS('particles-js', {
+      "particles": {
+        "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": "#ffffff" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.4 },
+        "size": { "value": 3 },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#ffffff",
+          "opacity": 0.3,
+          "width": 1
+        },
+        "move": { "enable": true, "speed": 3 }
+      },
+      "interactivity": {
+        "events": {
+          "onhover": { "enable": true, "mode": "repulse" }
+        }
+      },
+      "retina_detect": true
+    });
+  </script>
+</body>
+</html>

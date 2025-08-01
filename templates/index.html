@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Web Vulnerability Scanner</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+<body>
+  <div id="particles-js"></div>
+
+  {% include 'navbar.html' %}
+
+  <div class="page-content">
+    <h1>Web Vulnerability Scanner</h1>
+
+    <!-- Form -->
+    <form method="POST" action="/">
+      <input type="text" name="url" placeholder="Enter website URL..." required>
+      <button type="submit" class="scan-btn" id="scanBtn">🔍 Scan</button>
+
+    </form>
+
+    <!-- Spinner (Hidden by Default) -->
+    <div id="spinner" class="spinner" style="display: none;">
+  <div class="loader"></div>
+  <p>Scanning... Please wait.</p>
+  <p>Elapsed Time: <span id="scan-timer">0</span>s</p>
+</div>
+
+    {% if results %}
+    <div class="results">
+      <h2>🔍 Scan Results for {{ results.url }}</h2>
+
+      {% if results.tech_stack %}
+      <div class="card">
+        <h3>Detected Tech Stack</h3>
+        <ul>
+          {% for tech in results.tech_stack %}
+          <li>{{ tech }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
+      {% if results.headers %}
+      <div class="card">
+        <h3>Security Headers</h3>
+        <ul>
+          {% for header, value in results.headers.items() %}
+          <li><strong>{{ header }}:</strong> {{ value }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
+      <div class="card">
+        <h3>XSS Vulnerabilities</h3>
+        {% if results.xss %}
+        <ul>
+          {% for issue in results.xss %}
+          <li>{{ issue }}</li>
+          {% endfor %}
+        </ul>
+        {% else %}
+        <p>No XSS vulnerabilities found.</p>
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+
+  <script>
+  const form = document.querySelector("form");
+  const spinner = document.getElementById("spinner");
+  const timerDisplay = document.getElementById("scan-timer");
+
+  let timerInterval;
+
+  form.addEventListener("submit", () => {
+    spinner.style.display = "flex";
+    let seconds = 0;
+    timerDisplay.textContent = seconds;
+
+    // Start live timer
+    timerInterval = setInterval(() => {
+      seconds++;
+      timerDisplay.textContent = seconds;
+    }, 1000);
+  });
+    form.addEventListener("submit", () => {
+    spinner.style.display = "flex";
+    scanBtn.disabled = true;
+    scanBtn.textContent = "Scanning..."; // Or add a spinner icon here
+  });
+
+  // Optional: Stop the timer if results are shown
+  window.addEventListener("load", () => {
+    const resultsSection = document.querySelector(".results");
+    if (resultsSection && timerInterval) {
+      clearInterval(timerInterval);
+    }
+  });
+</script>
+<!-- particles.js library -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script>
+  particlesJS('particles-js', {
+    "particles": {
+      "number": {
+        "value": 60,
+        "density": {
+          "enable": true,
+          "value_area": 800
+        }
+      },
+      "color": {
+        "value": "#ffffff"
+      },
+      "shape": {
+        "type": "circle"
+      },
+      "opacity": {
+        "value": 0.4
+      },
+      "size": {
+        "value": 3
+      },
+      "line_linked": {
+        "enable": true,
+        "distance": 150,
+        "color": "#ffffff",
+        "opacity": 0.3,
+        "width": 1
+      },
+      "move": {
+        "enable": true,
+        "speed": 3
+      }
+    },
+    "interactivity": {
+      "events": {
+        "onhover": {
+          "enable": true,
+          "mode": "repulse"
+        }
+      }
+    },
+    "retina_detect": true
+  });
+</script>
+
+</body>
+
+
+</body>
+</html>
