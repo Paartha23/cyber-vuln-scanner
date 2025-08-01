@@ -30,44 +30,7 @@ It has a clean, modern UI with animated backgrounds and interactive cards. I cre
 
 ---
 
-## 📁 How It’s Structured
- cyber-vuln-scanner/
-├── app.py                      # Entry point for Flask app
-├── main.py                     # Optional alternate entry or script
-├── requirements.txt            # Python dependencies
-├── README.md
-│
-├── scanner/                    # Core scanning logic
-│   ├── __init__.py
-│   ├── tech_stack_detector.py
-│   ├── security_header_scanner.py
-│   ├── xss_scanner.py
-│   └── sqli_scanner.py
-│
-├── utils/                      # Utility helpers
-│   ├── __init__.py
-│   └── report_generator.py
-│
-├── static/                     # Static frontend assets
-│   ├── css/
-│   │   └── styles.css
-│   └── js/
-│       └── script.js
-│
-├── templates/                  # HTML templates (Flask views)
-│   ├── index.html
-│   ├── frameworks.html
-│   ├── navbar.html
-│   └── result.html
-│
-└── venv/                       # Python virtual environment
 
-
-
----
-
-
----
 
 ## 🚀 How to Run the Project
 
