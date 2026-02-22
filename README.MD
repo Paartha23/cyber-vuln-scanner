@@ -1,18 +1,18 @@
-# 🛡️ Cyber Vuln Scanner
+#  Cyber Vuln Scanner
 
 This is a **simple web vulnerability scanner** that I built using **Python and Flask**. It allows users to enter a website URL and scans it for:
 
-- 🔍 Technology stack used by the site  
-- 🛡️ Security headers  
-- ⚔️ Reflected XSS (Cross-Site Scripting) vulnerabilities  
+-  Technology stack used by the site  
+-  Security headers  
+-  Reflected XSS (Cross-Site Scripting) vulnerabilities  
 
 It has a clean, modern UI with animated backgrounds and interactive cards. I created this project to practice web security concepts and also improve my Flask + frontend development skills.
 
 ---
 
-## 🔧 What I Used
+##  What I Used
 
-### 🧠 Tech
+###  Tech
 
 - **Python 3**
 - **Flask** (backend web framework)
@@ -20,7 +20,7 @@ It has a clean, modern UI with animated backgrounds and interactive cards. I cre
 - **Particles.js** (for animated background)
 - **Modern UI styles** (glassmorphism, hover effects)
 
-### 🔍 Functionality
+###  Functionality
 
 - `tech_stack_detector.py`: Gets server info from HTTP headers  
 - `security_header_scanner.py`: Checks for important security headers like CSP, X-Frame-Options, etc.  
@@ -32,7 +32,7 @@ It has a clean, modern UI with animated backgrounds and interactive cards. I cre
 
 
 
-## 🚀 How to Run the Project
+##  How to Run the Project
 
 Make sure Python 3 is installed. Then:
 
